@@ -41,14 +41,14 @@ while not game_over:
         or snake.head.ycor() > 280
         or snake.head.ycor() < -280
     ):
-        game_over = True
-        scoreboard.game_over()
+        snake.reset()
+        scoreboard.reset()
 
     # Detect collision with any segment
     for segment in snake.segments[1:]:
         if snake.head.distance(segment) < 10:
-            game_over = True
-            scoreboard.game_over()
+            snake.reset()
+            scoreboard.reset()
 
 
 screen.exitonclick()
